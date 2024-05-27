@@ -16,6 +16,6 @@ jobs:
         run: |
           uname -r
           whoami
-          cat /etc/os=release
+          cat /etc/os-release
           docker version
           docker-docker-compose version
