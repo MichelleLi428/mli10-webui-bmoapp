@@ -1,0 +1,21 @@
+# create pipelines with some name
+name: mli10 app containerization pipelines
+# Trigger -- wen this pipleline should start
+on:
+  push:
+    branches:
+      - "main"
+
+# jobs for performing operations
+jobs:
+  mli10-image-build:
+    runs-on: ubuntu-latest
+    # this server will be provision by github backen for this job
+    steps:
+      - name: run some basic commands on above server to verify
+        run: |
+          uname -r
+          whoami
+          cat /etc/os=release
+          docker version
+          docker-docker-compose version
