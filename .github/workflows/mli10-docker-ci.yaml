@@ -1,6 +1,6 @@
 # create pipelines with some name
 name: mli10 app containerization pipelines
-# Trigger -- wen this pipleline should start
+# Trigger -- when this pipleline should start
 on:
   push:
     branches: [ "dev", "main" ]
