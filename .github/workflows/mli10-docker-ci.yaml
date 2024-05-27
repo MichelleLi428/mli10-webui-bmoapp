@@ -46,7 +46,7 @@ jobs:
 
       - name: rebuild image in docker hub format and push it to docker hub
         run: |
-          echo "this is home work for guys "
-          echo "plz find some action workflow "
-          echo "build image in docker hub format and push also " 
+          echo "this is my home work "
+          echo "create dev branch "
+          echo "push to dev or pull reqeust also trigger piepelin " 
         
