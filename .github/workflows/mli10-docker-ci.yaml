@@ -38,8 +38,8 @@ jobs:
       - name: try to login from runner to docker hub account 
         uses: docker/login-action@v3 
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.MLI10_USER }}
+          password: ${{ secrets.MLI10_PASSWORD }}
 
       - name: rebuild image in docker hub format and push it to docker hub
         run: |
