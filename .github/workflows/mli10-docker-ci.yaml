@@ -33,3 +33,10 @@ jobs:
         run: |
           curl -f  http://localhost:1234/health.html
           echo "access health.html page using curl"
+
+      - name: try to login from runner to docker hub account
+        run: |
+          docker login -u michelleli0428 -p love2God@2024
+          docker tag mli10-webui:version4 docker.io/michelleli0428/mli10:version1
+          docker push docker.io/michelleli0428/mli10:version1
+          docker logout 
