@@ -18,4 +18,4 @@ jobs:
           whoami
           cat /etc/os-release
           docker version
-          docker-docker-compose version
+          docker-compose version
