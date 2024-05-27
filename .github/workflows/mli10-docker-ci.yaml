@@ -31,5 +31,5 @@ jobs:
 
       - name: verify health website
         run: |
-          curl -f  http://localhost:1234/heath.html
+          curl -f  http://localhost:1234/health.html
           echo "access health.html page using curl"
