@@ -28,3 +28,7 @@ jobs:
           docker-compose up -d
           sleep 2
           docker-compose ps 
+
+      - name: verify health website
+        run: |
+          curl -Is  http://health |head -1
