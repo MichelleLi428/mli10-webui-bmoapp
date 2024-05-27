@@ -3,8 +3,9 @@ name: mli10 app containerization pipelines
 # Trigger -- wen this pipleline should start
 on:
   push:
-    branches:
-      - "main"
+    branches: [ "dev", "main" ]
+    # branches:
+    #   - "main"
 
 # jobs for performing operations
 jobs:
