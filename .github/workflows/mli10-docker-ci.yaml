@@ -3,11 +3,11 @@ name: mli10 app containerization pipelines
 # Trigger -- when this pipleline should start
 on:
   push:
-    branches: [ "dev", "main" ]
-  pull_request:
-    branches: [ "dev", "main" ]   
-    # branches:
-    #   - "main"
+  #   branches: [ "dev", "main" ]
+  # pull_request:
+  #   branches: [ "dev", "main" ]   
+    branches:
+      - "dev"
 
 # jobs for performing operations
 jobs:
@@ -44,9 +44,13 @@ jobs:
           username: ${{ secrets.MLI10_USER }}
           password: ${{ secrets.MLI10_PASSWORD }}
 
-      - name: rebuild image in docker hub format and push it to docker hub
-        run: |
-          echo "this is my home work "
-          echo "create dev branch "
-          echo "push to dev or pull reqeust also trigger piepelin " 
+     - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: docker.io/${{ secrets.MLI10_USER }}/mli10-ui:uiversion001
+
+      - name: docker logout from runner after pushing 
+        run: docker logout    
         
