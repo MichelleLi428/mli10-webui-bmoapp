@@ -23,7 +23,7 @@ jobs:
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v2.1.0 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
         env:
-          SONAR_TOKEN: mli10-python-project
+          SONAR_TOKEN: sqp_7ec9083e23d578cfcd2ae54e5db8b101efdd66eb
           SONAR_HOST_URL: http://44.219.46.64:9000/
 
       - name: using pre-design github workflow to get copy gitrepo code to runners machine
