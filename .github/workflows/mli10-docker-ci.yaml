@@ -20,8 +20,11 @@ jobs:
           docker version
           docker-compose 
           # sonarqube-scanner --version
+      - name: using pre-design github workflow to get copy gitrepo code to runners machine
+        uses: actions/checkout@v4
+
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@v2.1.0 
+        uses: SonarSource/sonarqube-scan-action@v2.1.0
         with:
           projectBaseDir: .
           args: >
@@ -30,8 +33,7 @@ jobs:
           SONAR_TOKEN: sqp_7ec9083e23d578cfcd2ae54e5db8b101efdd66eb
           SONAR_HOST_URL: http://44.219.46.64:9000/
 
-      - name: using pre-design github workflow to get copy gitrepo code to runners machine
-        uses: actions/checkout@v4
+      
 
       - name: verify github code
         run: |
