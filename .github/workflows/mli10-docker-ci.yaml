@@ -19,8 +19,13 @@ jobs:
           cat /etc/os-release
           docker version
           docker-compose 
-          sonarqube-scanner --version
-          
+          # sonarqube-scanner --version
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v2.1.0 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
+        env:
+          SONAR_TOKEN: Bmo@12345
+          SONAR_HOST_URL: http://44.219.46.64:9000/
+
       - name: using pre-design github workflow to get copy gitrepo code to runners machine
         uses: actions/checkout@v4
 
