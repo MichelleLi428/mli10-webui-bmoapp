@@ -41,7 +41,7 @@ jobs:
           username: ${{ secrets.MLI10_USER }}
           password: ${{ secrets.MLI10_PASSWORD }}
 
-     - name: Build and push
+      - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
