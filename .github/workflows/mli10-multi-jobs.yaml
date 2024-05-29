@@ -23,7 +23,7 @@ jobs:
       - name: checking docker version and sonarqube-scanner
         run: |
           date
-          # sonar-scanner --version
+          sonar-scanner --version
   mli10-build-job:
     runs-on: macos-latest
     needs: mli10-sast-job
