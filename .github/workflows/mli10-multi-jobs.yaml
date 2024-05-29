@@ -8,22 +8,31 @@ on:
 
 # jobs for performing operations
 jobs:
-  mli10-code-checkjob:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checking only
-        run: |
-          echo "just checking"
-          whoami
-
   mli10-sast-job:  
     runs-on: self-hosted
-    needs: mli10-code-checkjob
     steps:
       - name: checking docker version and sonarqube-scanner
         run: |
           date
           sonar-scanner --version
+      - name: fetch git code
+        uses: actions/checkout@v4
+
+      # - name: SonarQube Scan
+      #   uses: SonarSource/sonarqube-scan-action@v2.1.0
+      #   with:
+      #     projectBaseDir: .
+      #     args: >
+      #       -Dsonar.projectKey=mli10-python-project
+      #   env:
+      #     SONAR_TOKEN: sqp_7ec9083e23d578cfcd2ae54e5db8b101efdd66eb
+      #     SONAR_HOST_URL: http://44.219.46.64:9000/
+      - name: using local sonar runner
+        run: |
+          pwd
+           C:\Users\user\Downloads\sonar-scanner\sonar-scanner-5.0.1.3006-windows\bin\sonar-scanner.bat -D"sonar.projectKey=mli10-python-project" -D"sonar.sources=." -D"sonar.host.url=http://44.219.46.64:9000" -D"sonar.token=sqp_7ec9083e23d578cfcd2ae54e5db8b101efdd66eb"
+
+
   mli10-build-job:
     runs-on: macos-latest
     needs: mli10-sast-job
