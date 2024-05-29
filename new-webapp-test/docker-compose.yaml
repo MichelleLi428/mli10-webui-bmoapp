@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.8'
 
 services:
   mli10-webapp:
@@ -10,4 +10,4 @@ services:
       WORDPRESS_DB_HOST: database-1.cy5wzwpc1rcr.us-east-1.rds.amazonaws.com
       WORDPRESS_DB_USER: admin
       WORDPRESS_DB_PASSWORD: Bmo1234567
-      WORDPRESS_DB__NAME: ashuhellou
+      WORDPRESS_DB__NAME: ashuhello
