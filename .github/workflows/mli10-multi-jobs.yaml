@@ -14,7 +14,7 @@ jobs:
       - name: checking docker version and sonarqube-scanner
         run: |
           date
-          # sonar-scanner --version
+          sonar-scanner --version
       - name: fetch git code
         uses: actions/checkout@v4
 
