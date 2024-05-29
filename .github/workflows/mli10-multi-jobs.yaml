@@ -1,0 +1,34 @@
+# create pipelines with some name
+name: mli10 app containerization pipelines
+# Trigger -- when this pipleline should start
+on:
+  push:
+    branches:
+      - "dev"
+
+# jobs for performing operations
+jobs:
+  mli10-code-checkjob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking only
+        run: |
+          echo "just checking"
+          whoami
+
+  mli10--sast-job:  
+    runs-on: self-hosted
+    needs: mli10-code-checkjob
+    steps:
+      - name: checking docker version and sonarqube-scanner
+        run: |
+          docker version
+          sonar-scanner --version
+  mli10-build-job:
+    runs-on: macos-latest
+    needs: mli10--sast-job
+    steps:
+      - name: just check general messages
+        run: |
+          echo "python version checking"
+          python -V
