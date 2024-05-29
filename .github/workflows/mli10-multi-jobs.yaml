@@ -25,8 +25,8 @@ jobs:
       #     args: >
       #       -Dsonar.projectKey=mli10-python-project
       #   env:
-      #     SONAR_TOKEN: sqp_7ec9083e23d578cfcd2ae54e5db8b101efdd66eb
-      #     SONAR_HOST_URL: http://44.219.46.64:9000/
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       - name: using local sonar runner
         run: |
           pwd
