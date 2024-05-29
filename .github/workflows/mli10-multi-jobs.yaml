@@ -18,20 +18,19 @@ jobs:
       - name: fetch git code
         uses: actions/checkout@v4
 
-      # - name: SonarQube Scan
-      #   uses: SonarSource/sonarqube-scan-action@v2.1.0
-      #   with:
-      #     projectBaseDir: .
-      #     args: >
-      #       -Dsonar.projectKey=mli10-python-project
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      
       - name: using local sonar runner
         run: |
           pwd
            C:\Users\user\Downloads\sonar-scanner\sonar-scanner-5.0.1.3006-windows\bin\sonar-scanner.bat -D"sonar.projectKey=mli10-python-project" -D"sonar.sources=." -D"sonar.host.url=${{ secrets.SONAR_HOST_URL }}" -D"sonar.token=${{ secrets.SONAR_TOKEN }}"
-
+      - name: using upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mli10-artifact
+          path: |
+            .
+            !**/.git*
+            !**/*.md
 
   mli10-build-job:
     runs-on: macos-latest
@@ -39,5 +38,17 @@ jobs:
     steps:
       - name: just check general messages
         run: |
-          echo "python version checking"
-          python -V
+          echo "docker related details"
+          docker version
+          docker-compose version
+      - name: downloading artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: mli10-artifact
+          path: .
+      - name: docker compose to build and test
+        run: |
+          ls -a
+          docker-compose up -d --build
+          sleep 2
+          docker-compose ps
