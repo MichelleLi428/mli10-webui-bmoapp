@@ -10,7 +10,7 @@ on:
 jobs:
   mli10-image-build:
     runs-on: ubuntu-latest
-    # runs-on: self-hosted
+    runs-on: self-hosted
     # this server will be provision by github backen for this job
     steps:
       - name: run some basic commands on above server to verify
