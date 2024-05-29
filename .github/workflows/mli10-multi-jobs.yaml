@@ -31,9 +31,10 @@ jobs:
             .
             !**/.git*
             !**/*.md
+            
 
   mli10-build-job:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     needs: mli10-sast-job
     steps:
       - name: just check general messages
