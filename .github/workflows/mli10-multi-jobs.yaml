@@ -64,5 +64,5 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_default_region: us-east-1
           aws_ecr_repo_name: mli10repo 
-          # aws_ecr_repo_create: true   
+          aws_ecr_repo_create: true   
       
