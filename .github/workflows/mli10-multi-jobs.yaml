@@ -63,19 +63,5 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_default_region: us-east-1
-          aws_ecr_repo_name: hello-repo    
-      # - name: config AWS credential
-      #   uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: us-east-1
-      #     # image_tag: mli10github    
-      # - id: ecr-publish
-      #   uses: bitovi/github-actions-ecr-publish@v0.1.0
-      #   with:
-      #     aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws_default_region: us-east-1
-      #     aws_ecr_repo_name: bmo-webui-app
-      #     image_tag: mli10githubv1
+          aws_ecr_repo_name: mli10repo    
+      
