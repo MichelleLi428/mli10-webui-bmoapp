@@ -43,7 +43,7 @@ jobs:
           docker-compose logs
       - name: Build an image from Dockerfile
         run: |
-          cd python-app-secrmli10pythonet
+          cd python-app-secret
           docker build -t mli10python:bmov${{ github.sha }} .
           
       - name: Run Trivy vulnerability scanner
