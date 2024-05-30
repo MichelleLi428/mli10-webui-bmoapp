@@ -55,3 +55,9 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+      - name: checking cdk version  
+        run: |
+          node --version
+          npm --version
+          cdk --version
+          aws --version    
