@@ -6,7 +6,7 @@ on:
     branches:
       - "dev"
 
-# jobs for performing operations day4
+# jobs for performing operations day4 cicd
 jobs:
   mli10-image-build:
     runs-on: ubuntu-latest
