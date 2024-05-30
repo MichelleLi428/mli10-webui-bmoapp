@@ -1,0 +1,35 @@
+# create pipelines with some name
+name: mli10 app containerization pipelines
+# Trigger -- when this pipleline should start
+on:
+  push:
+    branches:
+      - "dev1"
+
+# jobs for performing operations
+jobs:
+  mli10-image-build:
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
+    # this server will be provision by github backen for this job
+    steps:
+      - name: run some basic commands on above server to verify
+        run: |
+          uname -r
+          whoami
+          cat /etc/os-release
+          docker version
+          docker-compose 
+          # sonarqube-scanner --version
+      - name: using pre-design github workflow to get copy gitrepo code to runners machine
+        uses: actions/checkout@v4
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v2.1.0
+        with:
+          projectBaseDir: ./python-app-secret
+          args: >
+            -Dsonar.projectKey=mli10-python-project
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
