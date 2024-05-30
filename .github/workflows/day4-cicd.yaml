@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     # this server will be provision by github backen for this job
     steps:
-      - name: run some basic commands on above server to do some verify 
+      - name: run some basic commands on above server to do some verify again
         run: |
           uname -r 
           whoami
