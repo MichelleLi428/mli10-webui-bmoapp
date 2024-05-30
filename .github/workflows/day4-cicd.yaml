@@ -75,7 +75,7 @@ jobs:
       - name: install npm modules for ecs 
         run: |
           node -v 
-          cd ashu-ecs 
+          cd mli10-ecs 
           npm install 
       - name: setup aws login details 
         uses: aws-actions/configure-aws-credentials@v4
@@ -85,6 +85,6 @@ jobs:
           aws-region: us-east-1
       - name:  cdk deploy ecs code try 1 
         run: |
-          cd ashu-ecs
+          cd mli10-ecs
           npx cdk bootstrap 
           npx cdk deploy --no-rollback --require-approval never 
