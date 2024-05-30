@@ -27,7 +27,7 @@ jobs:
         with:
           projectBaseDir: ./python-app-secret
           args: >
-            -Dsonar.projectKey=mli10-python-project
+            -Dsonar.projectKey=nebuld
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

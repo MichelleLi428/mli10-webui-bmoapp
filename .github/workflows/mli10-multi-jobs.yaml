@@ -22,7 +22,7 @@ jobs:
       - name: using local sonar runner
         run: |
           pwd
-           C:\Users\user\Downloads\sonar-scanner\sonar-scanner-5.0.1.3006-windows\bin\sonar-scanner.bat -D"sonar.projectKey=mli10-python-project" -D"sonar.sources=." -D"sonar.host.url=${{ secrets.SONAR_HOST_URL }}" -D"sonar.token=${{ secrets.SONAR_TOKEN }}"
+           C:\Users\user\Downloads\sonar-scanner\sonar-scanner-5.0.1.3006-windows\bin\sonar-scanner.bat -D"sonar.projectKey=nebuld" -D"sonar.sources=." -D"sonar.host.url=${{ secrets.SONAR_HOST_URL }}" -D"sonar.token=${{ secrets.SONAR_TOKEN }}"
       - name: using upload artifacts
         uses: actions/upload-artifact@v4
         with:
