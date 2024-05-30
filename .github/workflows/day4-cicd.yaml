@@ -49,7 +49,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: 'mli10python:bmov${{ github.sha }}'
+          image-ref:  'docker.io/${{ secrets.DOCKERHUB_USERNAME }}/mli10python:bmov${{ github.sha }}'
           format: 'table'
           exit-code: '0' # exit code non zero terminate pipeline
           ignore-unfixed: true
