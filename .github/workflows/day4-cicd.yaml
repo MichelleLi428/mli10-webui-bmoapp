@@ -6,7 +6,7 @@ on:
     branches:
       - "dev"
 
-# jobs for performing operations
+# jobs for performing operations day4
 jobs:
   mli10-image-build:
     runs-on: ubuntu-latest
