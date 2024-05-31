@@ -4,7 +4,7 @@ import * as ec2 from 'aws-cdk-lib/aws-ec2'
 import * as ecs from  'aws-cdk-lib/aws-ecs'
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
-export class AshuEcsStack extends cdk.Stack {
+export class Mli10EcsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -12,8 +12,8 @@ export class AshuEcsStack extends cdk.Stack {
       vpcId: 'vpc-063afa0c24ec80cb8'
     });
     // defining ECS cluster info 
-    const cluster = new ecs.Cluster(this,'ashu-ecs-cluster',{
-      clusterName: 'mli10-ecs-bycdk', // change cluster name 
+    const cluster = new ecs.Cluster(this,'mli10-ecs-cluster',{
+      clusterName: 'mli10-ecs-cdk', // change cluster name 
       vpc: vpc,
       enableFargateCapacityProviders: true ,
       containerInsights: true // enable cloudwatch monitoring 
@@ -33,8 +33,8 @@ export class AshuEcsStack extends cdk.Stack {
        
     });
     // adding container info 
-    const container = ashuTaskDef.addContainer('mli10dkc1',{
-      image: ecs.ContainerImage.fromRegistry('dockermli10/ashubmo:nginxuiv1'),
+    const container = mli10TaskDef.addContainer('mli10cdkc1',{
+      image: ecs.ContainerImage.fromRegistry('dockerashu/ashubmo:nginxuiv1'),
       memoryLimitMiB: 256,
       portMappings: [{ containerPort: 80 }]
     });
