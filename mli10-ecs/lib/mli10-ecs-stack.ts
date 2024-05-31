@@ -27,7 +27,7 @@ export class Mli10EcsStack extends cdk.Stack {
     // });
 
     // task Definition of farget launch type 
-    const ashuTaskDef = new ecs.FargateTaskDefinition(this,'mli10',{
+    const mli10TaskDef = new ecs.FargateTaskDefinition(this,'mli10',{
       cpu:  256,
       memoryLimitMiB: 512
        
