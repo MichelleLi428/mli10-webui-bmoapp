@@ -73,11 +73,11 @@ jobs:
           name: mli10-artifact
           path: |
             ./mli10-ecs
-  ashu-cdk-build:
+  mli10-cdk-build:
     runs-on: ubuntu-latest
     needs: mli10-image-build
     steps:          
-      - name: installing node 20 
+      - name: installing node 20 cd m
         uses: actions/setup-node@v2 
         with:
           node-version: '20'
@@ -91,7 +91,6 @@ jobs:
       - name: install npm modules for ecs 
         run: |
           node -v 
-          cd mli10-ecs 
           npm install 
       - name: setup aws login details 
         uses: aws-actions/configure-aws-credentials@v4
